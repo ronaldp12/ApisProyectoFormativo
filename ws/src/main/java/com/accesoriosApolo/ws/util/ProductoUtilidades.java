@@ -13,7 +13,7 @@ public class ProductoUtilidades {
 
     public static void iniciarLista(){
         if (conteo==0){
-            listaProductos.add(new ProductoDto(2001,
+            listaProductos.add(new ProductoDto("2001",
                     "Casco Integral Moto",
                     "Casco integral con visor solar interno y ventilación frontal.",
                     "L",
@@ -23,7 +23,7 @@ public class ProductoUtilidades {
                     "Material: ABS, homologación DOT y ECE, acolchado desmontable.",
                     74.99f,
                     3 ));
-            listaProductos.add(new ProductoDto(2002,
+            listaProductos.add(new ProductoDto("2002",
                     "Chaqueta Moto Impermeable",
                     "Chaqueta con protecciones, reflectantes y forro térmico desmontable.",
                     "XL",
