@@ -4,6 +4,8 @@ import com.accesoriosApolo.ws.dto.ProductoDto;
 import com.accesoriosApolo.ws.util.ProductoUtilidades;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class ProductoDao {
 
@@ -29,6 +31,10 @@ public class ProductoDao {
             }
         }
         return null;
+    }
+
+    public List<ProductoDto> obtenerListaProductos() {
+        return ProductoUtilidades.listaProductos;
     }
 
     public ProductoDto registrarProducto(ProductoDto productoDto){

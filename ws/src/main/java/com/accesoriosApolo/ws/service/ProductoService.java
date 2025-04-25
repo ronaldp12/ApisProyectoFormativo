@@ -5,6 +5,8 @@ import com.accesoriosApolo.ws.dto.ProductoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductoService {
 
@@ -17,6 +19,10 @@ public class ProductoService {
 
     public ProductoDto obtenerProdutoPorReferencia(String referencia) {
         return ProductoDao.consultarProductoIndividual(referencia);
+    }
+
+    public List<ProductoDto> obtenerListaProductos(){
+        return productoDao.obtenerListaProductos();
     }
 
     public ProductoDto registrarProducto(ProductoDto productoDto){
