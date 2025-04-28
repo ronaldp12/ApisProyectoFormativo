@@ -20,7 +20,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("usuarios/{cedula}")
+    @GetMapping("/usuarios/{cedula}")
     public ResponseEntity<?> getUsuarioCedula(@PathVariable("cedula") int cedula) {
         if (cedula <= 0) {
             return ResponseEntity.badRequest().body("El parámetro 'cedula' es obligatorio y debe ser mayor que 0.");
@@ -33,7 +33,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioDto);
     }
 
-    @GetMapping("usuarios-list")
+    @GetMapping("/usuarios-list")
     public ResponseEntity<List<UsuarioDto>> getUsuarios() {
         try {
             List<UsuarioDto> usuarioDtos = usuarioService.obtenerListaUsuarios();
@@ -49,7 +49,7 @@ public class UsuarioController {
         }
     }
 
-    @PostMapping("registrar-usuario")
+    @PostMapping("/registrar-usuario")
     public ResponseEntity<UsuarioDto> registrarUsuario(@RequestBody UsuarioDto usuarioDto) {
 
         UsuarioDto miUsuario = usuarioService.registrarUsuario(usuarioDto);
@@ -57,11 +57,11 @@ public class UsuarioController {
         if (miUsuario != null) {
             return ResponseEntity.ok(miUsuario);
         } else {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
     }
 
-    @PutMapping("actualizar-usuario")
+    @PutMapping("/actualizar-usuario")
     public ResponseEntity<?> actualizarUsuario(@RequestBody UsuarioDto usuarioDto) {
         UsuarioDto usuarioActualizado = usuarioService.actualizarUsuario(usuarioDto);
 
@@ -71,7 +71,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioActualizado);
     }
 
-    @DeleteMapping("eliminar-usuario/{cedula}")
+    @DeleteMapping("/eliminar-usuario/{cedula}")
     public ResponseEntity<?> eliminarUsuario(@PathVariable int cedula) {
         if (cedula <= 0) {
             return ResponseEntity.badRequest().body("La cédula es obligatoria para eliminar un usuario.");

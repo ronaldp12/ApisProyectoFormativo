@@ -13,21 +13,15 @@ public class UsuarioDao {
         UsuarioUtilidades.iniciarLista();
     }
 
-    public static UsuarioDto consultarUsuarioIndividual(int cedula) {
-
+    public UsuarioDto consultarUsuarioIndividual(int cedula) {
         for (UsuarioDto u : UsuarioUtilidades.listaUsuarios) {
             if (u.getCedula() == cedula) {
-                UsuarioDto usuarioDto = new UsuarioDto();
-                usuarioDto.setCedula(u.getCedula());
-                usuarioDto.setNombre(u.getNombre());
-                usuarioDto.setCorreo(u.getCorreo());
-                usuarioDto.setTelefono(u.getTelefono());
-                usuarioDto.setContrasena(u.getContrasena());
-                return usuarioDto;
+                return u;
             }
         }
         return null;
     }
+
 
     public List<UsuarioDto> obtenerListaUsuarios() {
         return UsuarioUtilidades.listaUsuarios;
@@ -56,13 +50,14 @@ public class UsuarioDao {
         return null;
     }
 
-    public boolean eliminarUsuario(UsuarioDto usuarioDto) {
+    public boolean eliminarUsuario(int cedula) {
         for (int i = 0; i < UsuarioUtilidades.listaUsuarios.size(); i++) {
-            if (UsuarioUtilidades.listaUsuarios.get(i).getCedula() == usuarioDto.getCedula()) {
+            if (UsuarioUtilidades.listaUsuarios.get(i).getCedula() == cedula) {
                 UsuarioUtilidades.listaUsuarios.remove(i);
                 return true;
             }
         }
         return false;
     }
+
 }

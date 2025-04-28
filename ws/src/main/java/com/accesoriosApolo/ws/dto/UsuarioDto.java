@@ -4,6 +4,7 @@ public class UsuarioDto {
 
     private int cedula;
     private String nombre;
+    private String telefono;
     private String correo;
     private String contrasena;
     private String rol;
@@ -11,9 +12,10 @@ public class UsuarioDto {
     public UsuarioDto() {
 
     }
-    public UsuarioDto(int cedula, String nombre, String correo, String contrasena, String rol) {
+    public UsuarioDto(int cedula, String nombre, String telefono, String correo, String contrasena, String rol) {
         this.cedula = cedula;
         this.nombre = nombre;
+        this.telefono = telefono;
         this.correo = correo;
         this.contrasena = contrasena;
         this.rol = rol;
@@ -33,6 +35,14 @@ public class UsuarioDto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {

@@ -16,45 +16,30 @@ public class UsuarioService {
         this.usuarioDao = usuarioDao;
     }
 
-    public UsuarioDto obtenerUsuarioPorDocumento(int cedula) {
-        return UsuarioDao.consultarUsuarioIndividual(cedula);
-    }
-
     public UsuarioDto obtenerUsuarioPorCedula(int cedula) {
         return usuarioDao.consultarUsuarioIndividual(cedula);
     }
 
-
-    public UsuarioDto registrarUsuario(UsuarioDto usuarioDto) {
-
-        if (usuarioDto == null || usuarioDto.getCedula() == 0) {
-            return null;
-        }
-
-        return usuarioDao.registrarUsuario(usuarioDto);
+    public List<UsuarioDto> obtenerListaUsuarios() {
+        return usuarioDao.obtenerListaUsuarios();
     }
 
     public UsuarioDto actualizarUsuario(UsuarioDto usuarioDto) {
         if (usuarioDto == null || usuarioDto.getCedula() == 0) {
             return null;
         }
-
-        UsuarioDto usuarioExistente = UsuarioDao.consultarUsuarioIndividual(usuarioDto.getCedula());
+        UsuarioDto usuarioExistente = usuarioDao.consultarUsuarioIndividual(usuarioDto.getCedula());
         if (usuarioExistente == null) {
             return null;
         }
-
         return usuarioDao.actualizarUsuario(usuarioDto);
     }
 
     public boolean eliminarUsuario(int cedula) {
-        UsuarioDto usuarioExistente = UsuarioDao.consultarUsuarioIndividual(cedula);
-
+        UsuarioDto usuarioExistente = usuarioDao.consultarUsuarioIndividual(cedula);
         if (usuarioExistente == null) {
             return false;
         }
-        return usuarioDao.eliminarUsuario(usuarioExistente);
+        return usuarioDao.eliminarUsuario(cedula);
     }
-
-
 }
