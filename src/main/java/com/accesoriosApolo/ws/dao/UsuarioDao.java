@@ -14,6 +14,7 @@ public class UsuarioDao {
     }
 
     public static UsuarioDto consultarUsuarioIndividual(int cedula) {
+
         for (UsuarioDto u : UsuarioUtilidades.listaUsuarios) {
             if (u.getCedula() == cedula) {
                 UsuarioDto usuarioDto = new UsuarioDto();

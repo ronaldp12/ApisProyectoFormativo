@@ -53,6 +53,7 @@ public class UsuarioController {
     public ResponseEntity<UsuarioDto> registrarUsuario(@RequestBody UsuarioDto usuarioDto) {
 
         UsuarioDto miUsuario = usuarioService.registrarUsuario(usuarioDto);
+
         if (miUsuario != null) {
             return ResponseEntity.ok(miUsuario);
         } else {

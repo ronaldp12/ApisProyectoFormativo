@@ -11,7 +11,6 @@ public class UsuarioDto {
     public UsuarioDto() {
 
     }
-
     public UsuarioDto(int cedula, String nombre, String correo, String contrasena, String rol) {
         this.cedula = cedula;
         this.nombre = nombre;
