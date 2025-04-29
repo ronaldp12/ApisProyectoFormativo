@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicio-calcomanias")
+@RequestMapping("/servicio/calcomanias")
 public class CalcomaniaController {
 
     private final CalcomaniaService calcomaniaService;

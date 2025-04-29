@@ -10,6 +10,7 @@ public class ProductoDto {
     private float precio_unitario;
     private float peso_unidad;
     private String ficha_tecnica;
+    private int descuento;
     private float precio_descuento;
     private int fk_categoria;
 
@@ -17,7 +18,7 @@ public class ProductoDto {
 
     }
 
-    public ProductoDto(String referencia, String nombre, String descripcion, String talla, int stock, float precio_unitario, float peso_unidad, String ficha_tecnica, float precio_descuento, int fk_categoria) {
+    public ProductoDto(String referencia, String nombre, String descripcion, String talla, int stock, float precio_unitario, float peso_unidad, String ficha_tecnica, int descuento, float precio_descuento, int fk_categoria) {
         this.referencia = referencia;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -26,6 +27,7 @@ public class ProductoDto {
         this.precio_unitario = precio_unitario;
         this.peso_unidad = peso_unidad;
         this.ficha_tecnica = ficha_tecnica;
+        this.descuento = descuento;
         this.precio_descuento = precio_descuento;
         this.fk_categoria = fk_categoria;
     }
@@ -108,5 +110,13 @@ public class ProductoDto {
 
     public void setFk_categoria(int fk_categoria) {
         this.fk_categoria = fk_categoria;
+    }
+
+    public int getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
     }
 }

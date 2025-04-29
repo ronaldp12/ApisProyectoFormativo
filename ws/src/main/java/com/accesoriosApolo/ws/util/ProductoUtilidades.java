@@ -21,6 +21,7 @@ public class ProductoUtilidades {
                     89.99f,
                     1.45f,
                     "Material: ABS, homologación DOT y ECE, acolchado desmontable.",
+                    0,
                     74.99f,
                     3 ));
             listaProductos.add(new ProductoDto("2002",
@@ -31,6 +32,7 @@ public class ProductoUtilidades {
                     129.99f,
                     2.30f,
                     "Tejido Oxford 600D, protecciones CE en hombros y codos, resistente al agua.",
+                    0,
                     109.99f,
                     3));
             conteo=1;

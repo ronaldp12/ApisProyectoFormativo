@@ -25,6 +25,7 @@ public class ProductoDao {
                 productoDto.setPrecio_unitario(p.getPrecio_unitario());
                 productoDto.setPeso_unidad(p.getPeso_unidad());
                 productoDto.setFicha_tecnica(p.getFicha_tecnica());
+                productoDto.setDescuento(p.getDescuento());
                 productoDto.setPrecio_descuento(p.getPrecio_descuento());
                 productoDto.setFk_categoria(p.getFk_categoria());
                 return productoDto;
@@ -61,6 +62,7 @@ public class ProductoDao {
                 obj.setPrecio_unitario(productoDto.getPrecio_unitario());
                 obj.setPeso_unidad(productoDto.getPeso_unidad());
                 obj.setFicha_tecnica(productoDto.getFicha_tecnica());
+                obj.setDescuento(productoDto.getDescuento());
                 obj.setPrecio_descuento(productoDto.getPrecio_descuento());
                 obj.setFk_categoria(productoDto.getFk_categoria());
 

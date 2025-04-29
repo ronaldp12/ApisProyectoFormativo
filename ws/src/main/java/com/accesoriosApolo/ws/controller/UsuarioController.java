@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/servicio")
+@RequestMapping("/servicio/usuario")
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
@@ -33,7 +33,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioDto);
     }
 
-    @GetMapping("/usuarios-list")
+    @GetMapping("/usuarios")
     public ResponseEntity<List<UsuarioDto>> getUsuarios() {
         try {
             List<UsuarioDto> usuarioDtos = usuarioService.obtenerListaUsuarios();
@@ -49,7 +49,7 @@ public class UsuarioController {
         }
     }
 
-    @PostMapping("/registrar-usuario")
+    @PostMapping("/registrar")
     public ResponseEntity<UsuarioDto> registrarUsuario(@RequestBody UsuarioDto usuarioDto) {
 
         UsuarioDto miUsuario = usuarioService.registrarUsuario(usuarioDto);
@@ -61,7 +61,7 @@ public class UsuarioController {
         }
     }
 
-    @PutMapping("/actualizar-usuario")
+    @PutMapping("/actualizar")
     public ResponseEntity<?> actualizarUsuario(@RequestBody UsuarioDto usuarioDto) {
         UsuarioDto usuarioActualizado = usuarioService.actualizarUsuario(usuarioDto);
 
@@ -71,7 +71,7 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioActualizado);
     }
 
-    @DeleteMapping("/eliminar-usuario/{cedula}")
+    @DeleteMapping("/eliminar/{cedula}")
     public ResponseEntity<?> eliminarUsuario(@PathVariable int cedula) {
         if (cedula <= 0) {
             return ResponseEntity.badRequest().body("La cédula es obligatoria para eliminar un usuario.");
